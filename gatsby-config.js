@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `anzu.moe`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: 'Life off royalties',
+    siteUrl: 'https://anzu.moe',
   },
   plugins: [
     'gatsby-plugin-styled-components',
@@ -20,7 +20,12 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
-    'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -39,6 +44,27 @@ module.exports = {
       },
       __key: 'pages',
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: './content',
+      },
+      __key: 'posts',
+    },
     'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-graphql-codegen',
+      options: {
+        codegen: process.env.NODE_ENV !== 'development',
+        fileName: 'generated/graphql-types.ts',
+        documentPaths: [
+          './src/**/*.{ts,tsx,js}',
+          './gatsby/**/*.{ts,tsx,js}',
+          './.cache/fragments/*.js',
+          './node_modules/gatsby-*/**/*.js',
+        ],
+      },
+    },
   ],
 }
