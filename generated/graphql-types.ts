@@ -3385,6 +3385,11 @@ export type ImageSharpSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
+export type HeaderDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HeaderDataQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null };
+
 export type PageBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
 }>;
