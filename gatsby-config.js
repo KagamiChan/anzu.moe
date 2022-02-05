@@ -4,7 +4,7 @@ module.exports = {
     siteUrl: 'https://anzu.moe',
   },
   plugins: [
-    'gatsby-plugin-emotion',
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

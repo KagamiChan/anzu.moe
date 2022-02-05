@@ -1,20 +1,13 @@
-import React, { FC } from 'react'
-import { GlobalStyles as TwinGlobalStyles } from 'twin.macro'
-import { Global, css } from '@emotion/react'
-import tw from 'twin.macro'
+import { FC } from 'react'
+import Helmet from 'react-helmet'
 
-const Container = tw.div``
+import './layout.css'
 
 export const Layout: FC<any> = ({ children, ...rest }) => (
   <>
-    <TwinGlobalStyles />
-    <Global
-      styles={css`
-        body {
-          ${tw`font-serif leading-relaxed`}
-        }
-      `}
-    />
-    <Container {...rest}>{children}</Container>
+    <Helmet>
+      <body className="font-serif" />
+    </Helmet>
+    <div {...rest}>{children}</div>
   </>
 )

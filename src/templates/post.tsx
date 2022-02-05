@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { FC } from 'react'
-import tw from 'twin.macro'
 
 import { Layout } from '../components/layout'
 
@@ -12,15 +11,13 @@ interface Props {
   data: PageBySlugQuery
 }
 
-const Article = tw.div`prose`
-
 const PostLayout: FC<Props> = ({ data }) => (
   <Layout>
     <Header />
     <div>{data?.mdx?.frontmatter?.title}</div>
-    <Article>
+    <article className="prose">
       <MDXRenderer>{data.mdx!.body!}</MDXRenderer>
-    </Article>
+    </article>
   </Layout>
 )
 
