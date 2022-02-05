@@ -1,7 +1,17 @@
 // @ts-check
 
+const withOpacityValue = (variable) => {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(var(${variable}))`
+    }
+    return `rgb(var(${variable}) / ${opacityValue})`
+  }
+}
+
 /** @type { import("tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
+  darkMode: 'class',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
@@ -10,7 +20,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#F5A3B8',
+        primary: withOpacityValue('--color-primary'),
       },
     },
   },
