@@ -6,7 +6,17 @@ import './layout.css'
 export const Layout: FC<any> = ({ children, ...rest }) => (
   <>
     <Helmet>
-      <body className="font-serif" />
+      <body className="font-display" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="anonymous"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Oxygen:wght@300&display=swap"
+        rel="stylesheet"
+      />
     </Helmet>
     <div {...rest}>{children}</div>
   </>

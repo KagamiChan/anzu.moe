@@ -5,7 +5,8 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
-      serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      display: ['"Noto serif"', 'serif'],
+      heading: ['"Oxygen"', 'sans-serif'],
     },
     extend: {
       colors: {

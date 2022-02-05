@@ -14,10 +14,12 @@ interface Props {
 const PostLayout: FC<Props> = ({ data }) => (
   <Layout>
     <Header />
-    <div>{data?.mdx?.frontmatter?.title}</div>
-    <article className="prose">
-      <MDXRenderer>{data.mdx!.body!}</MDXRenderer>
-    </article>
+    <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
+      <article className="prose prose-zinc md:prose-lg lg:prose-xl prose-headings:font-heading prose-headings:font-light">
+        <h1>{data?.mdx?.frontmatter?.title}</h1>
+        <MDXRenderer>{data.mdx!.body!}</MDXRenderer>
+      </article>
+    </div>
   </Layout>
 )
 

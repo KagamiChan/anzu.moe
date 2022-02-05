@@ -14,7 +14,7 @@ export const Header = () => {
   `)
 
   return (
-    <h1 className="text-3xl font-bold text-primary">
+    <h1 className="text-5xl text-primary font-heading font-light px-4 sm:px-6 md:px-8">
       {data.site!.siteMetadata!.title}
     </h1>
   )
