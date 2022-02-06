@@ -1,5 +1,1 @@
-const { wrapRootElement } = require('./gatsby/browser')
-
-module.exports = {
-  wrapRootElement,
-}
+export { wrapRootElement } from './gatsby/browser'
