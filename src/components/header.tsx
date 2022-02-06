@@ -1,8 +1,14 @@
-import { useStaticQuery, graphql } from 'gatsby'
+import clsx from 'clsx'
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { FC } from 'react'
 
 import { HeaderDataQuery } from '../../generated/graphql-types'
 
-export const Header = () => {
+interface Props {
+  onIndex?: boolean
+}
+
+export const Header: FC<Props> = ({ onIndex }) => {
   const data = useStaticQuery<HeaderDataQuery>(graphql`
     query HeaderData {
       site {
@@ -14,8 +20,15 @@ export const Header = () => {
   `)
 
   return (
-    <h1 className="text-5xl text-primary font-heading font-light px-4 sm:px-6 md:px-8">
-      {data.site!.siteMetadata!.title}
-    </h1>
+    <header className="my-8">
+      <h1
+        className={clsx('text-4xl  font-heading font-light', {
+          'text-primary': !onIndex,
+          'text-6xl': onIndex,
+        })}
+      >
+        <Link to="/">{data.site!.siteMetadata!.title}</Link>
+      </h1>
+    </header>
   )
 }

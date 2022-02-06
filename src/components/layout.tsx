@@ -1,9 +1,10 @@
+import clsx from 'clsx'
 import { FC } from 'react'
 import Helmet from 'react-helmet'
 
 import './layout.css'
 
-export const Layout: FC<any> = ({ children, ...rest }) => (
+export const Layout: FC<any> = ({ children, className, ...rest }) => (
   <>
     <Helmet>
       <body className="font-display" />
@@ -18,6 +19,11 @@ export const Layout: FC<any> = ({ children, ...rest }) => (
         rel="stylesheet"
       />
     </Helmet>
-    <div {...rest}>{children}</div>
+    <div
+      className={clsx('max-w-8xl mx-auto px-4 sm:px-6 md:px-8', className)}
+      {...rest}
+    >
+      {children}
+    </div>
   </>
 )

@@ -420,8 +420,16 @@ export type MdxTableOfContentsArgs = {
 export type MdxFields = {
   slug?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  lastModified?: Maybe<Scalars['String']>;
+  lastModified?: Maybe<Scalars['Date']>;
   timeToRead?: Maybe<MdxFieldsTimeToRead>;
+};
+
+
+export type MdxFieldsLastModifiedArgs = {
+  formatString?: InputMaybe<Scalars['String']>;
+  fromNow?: InputMaybe<Scalars['Boolean']>;
+  difference?: InputMaybe<Scalars['String']>;
+  locale?: InputMaybe<Scalars['String']>;
 };
 
 export type MdxFieldsTimeToRead = {
@@ -1057,7 +1065,7 @@ export type MdxWordCountFilterInput = {
 export type MdxFieldsFilterInput = {
   slug?: InputMaybe<StringQueryOperatorInput>;
   type?: InputMaybe<StringQueryOperatorInput>;
-  lastModified?: InputMaybe<StringQueryOperatorInput>;
+  lastModified?: InputMaybe<DateQueryOperatorInput>;
   timeToRead?: InputMaybe<MdxFieldsTimeToReadFilterInput>;
 };
 
@@ -3394,6 +3402,11 @@ export type HeaderDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HeaderDataQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null };
+
+export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IndexPageQuery = { allMdx: { nodes: Array<{ id: string, fields?: { slug?: string | null, type?: string | null, timeToRead?: { words?: number | null, minutes?: number | null } | null } | null, frontmatter?: { title: string, date?: any | null } | null }> } };
 
 export type PageBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
