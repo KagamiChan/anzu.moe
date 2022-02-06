@@ -7,7 +7,7 @@ import './layout.css'
 export const Layout: FC<any> = ({ children, className, ...rest }) => (
   <>
     <Helmet>
-      <body className="font-display" />
+      <body className="font-display transition-colors bg-background text-text" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link
         rel="preconnect"
@@ -20,7 +20,7 @@ export const Layout: FC<any> = ({ children, className, ...rest }) => (
       />
     </Helmet>
     <div
-      className={clsx('max-w-8xl mx-auto px-4 sm:px-6 md:px-8', className)}
+      className={clsx('max-w-6xl px-4 sm:px-6 md:px-8', className)}
       {...rest}
     >
       {children}

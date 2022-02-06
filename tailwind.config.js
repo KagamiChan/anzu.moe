@@ -20,9 +20,18 @@ module.exports = {
     },
     extend: {
       colors: {
+        text: withOpacityValue('--color-text'),
+        title: withOpacityValue('--color-title'),
+        background: withOpacityValue('--color-background'),
         primary: withOpacityValue('--color-primary'),
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwindcss-logical')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-logical'),
+    require('@tailwindcss/forms')({
+      strategy: 'class',
+    }),
+  ],
 }

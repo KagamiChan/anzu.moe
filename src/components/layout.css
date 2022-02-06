@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: 233 53 98
+  --color-primary: 233 53 98;
+  --color-text: 55 65 81;
+  --color-background: 255 255 255;
+  --color-title: 0 0 0
 }
 
 .dark {
-  --color-primary: 245 163 184
+  --color-primary: 245 163 184;
+  --color-text: 209 213 219;
+  --color-background: 51 51 51;
+  --color-title: 255 255 255
 }
