@@ -6,6 +6,7 @@ import { useRecoilState } from 'recoil'
 import { HeaderDataQuery } from '../../generated/graphql-types'
 import { Switch } from './switch'
 import { isDarkModeState } from '../states'
+import { Helmet } from 'react-helmet'
 
 interface Props {
   onIndex?: boolean
@@ -36,20 +37,13 @@ export const Header: FC<Props> = ({ onIndex }) => {
         <Link to="/">{data.site!.siteMetadata!.title}</Link>
       </h1>
 
-      <Switch
-        isSelected={isDark}
-        onChange={(isSelected) => {
-          if (isSelected) {
-            setIsDark(true)
-            document.documentElement.classList.add('dark')
-          } else {
-            setIsDark(false)
-            document.documentElement.classList.remove('dark')
-          }
-        }}
-      >
+      <Switch isSelected={isDark} onChange={setIsDark}>
         <span className="select-none">Dark mode</span>
       </Switch>
+
+      <Helmet>
+        <html className={clsx({ dark: isDark })}></html>
+      </Helmet>
     </header>
   )
 }
