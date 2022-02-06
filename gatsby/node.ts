@@ -2,6 +2,8 @@ import { GatsbyNode, Node } from 'gatsby'
 import path from 'path'
 import { first, compact, split, each } from 'lodash'
 import { createFilePath } from 'gatsby-source-filesystem'
+import execa from 'execa'
+
 import { Mdx, CreatePagesQuery } from '../generated/graphql-types'
 
 const SRC = path.resolve(__dirname, '../src')
@@ -12,10 +14,11 @@ const isMdxNode = (
   return node.internal.type === `Mdx`
 }
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = ({
+export const onCreateNode: GatsbyNode['onCreateNode'] = async ({
   node,
   getNode,
   actions,
+  reporter,
 }) => {
   const { createNodeField } = actions
   if (isMdxNode(node)) {
@@ -32,6 +35,23 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
       value: first(compact(split(p, '/'))),
       name: 'type',
     })
+
+    try {
+      const { stdout: mtime } = await execa('git', [
+        'log',
+        '-1',
+        '--pretty=format:%aI',
+        node.fileAbsolutePath,
+      ])
+
+      createNodeField({
+        node,
+        value: mtime,
+        name: 'lastModified',
+      })
+    } catch (e: any) {
+      reporter.error('Error fetching git last modified information', e)
+    }
 
     const words = node.wordCount?.words || 0
     const WORD_PER_MINUTE = 160

@@ -420,6 +420,7 @@ export type MdxTableOfContentsArgs = {
 export type MdxFields = {
   slug?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
+  lastModified?: Maybe<Scalars['String']>;
   timeToRead?: Maybe<MdxFieldsTimeToRead>;
 };
 
@@ -1056,6 +1057,7 @@ export type MdxWordCountFilterInput = {
 export type MdxFieldsFilterInput = {
   slug?: InputMaybe<StringQueryOperatorInput>;
   type?: InputMaybe<StringQueryOperatorInput>;
+  lastModified?: InputMaybe<StringQueryOperatorInput>;
   timeToRead?: InputMaybe<MdxFieldsTimeToReadFilterInput>;
 };
 
@@ -1262,6 +1264,7 @@ export type FileFieldsEnum =
   | 'childrenMdx___wordCount___words'
   | 'childrenMdx___fields___slug'
   | 'childrenMdx___fields___type'
+  | 'childrenMdx___fields___lastModified'
   | 'childrenMdx___fields___timeToRead___words'
   | 'childrenMdx___fields___timeToRead___minutes'
   | 'childrenMdx___id'
@@ -1321,6 +1324,7 @@ export type FileFieldsEnum =
   | 'childMdx___wordCount___words'
   | 'childMdx___fields___slug'
   | 'childMdx___fields___type'
+  | 'childMdx___fields___lastModified'
   | 'childMdx___fields___timeToRead___words'
   | 'childMdx___fields___timeToRead___minutes'
   | 'childMdx___id'
@@ -3039,6 +3043,7 @@ export type MdxFieldsEnum =
   | 'wordCount___words'
   | 'fields___slug'
   | 'fields___type'
+  | 'fields___lastModified'
   | 'fields___timeToRead___words'
   | 'fields___timeToRead___minutes'
   | 'id'
