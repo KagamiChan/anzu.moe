@@ -44,7 +44,7 @@ export const Header: FC<Props> = ({ onIndex }) => {
             setTheme(isSelected ? 'dark' : 'light')
           }}
         >
-          <span className="select-none">Dark mode</span>
+          <span className="select-none">{isDark ? '🌙' : '🌞'}</span>
         </Switch>
       )}
     </header>
