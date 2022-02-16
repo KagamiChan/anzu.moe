@@ -20,7 +20,10 @@ export const Layout: FC<any> = ({ children, className, ...rest }) => (
       />
     </Helmet>
     <div
-      className={clsx('max-w-6xl px-4 sm:px-6 md:px-8', className)}
+      className={clsx(
+        'max-w-6xl px-4 sm:px-6 md:px-8 flex flex-col min-h-screen',
+        className,
+      )}
       {...rest}
     >
       {children}

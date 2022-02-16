@@ -74,8 +74,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const { createPage, createRedirect } = actions
 
   const result = await graphql<CreatePagesQuery>(`
-    query CreatePages {
-      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    query CreateBlogPages {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { fields: { type: { eq: "blog" } } }
+      ) {
         edges {
           node {
             id

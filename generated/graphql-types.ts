@@ -351,6 +351,7 @@ export type GatsbyImagePlaceholder =
 
 export type MdxFrontmatter = {
   title: Scalars['String'];
+  role?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
 };
 
@@ -1035,6 +1036,7 @@ export type MdxFilterInput = {
 
 export type MdxFrontmatterFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
+  role?: InputMaybe<StringQueryOperatorInput>;
   date?: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -1256,6 +1258,7 @@ export type FileFieldsEnum =
   | 'childrenMdx___rawBody'
   | 'childrenMdx___fileAbsolutePath'
   | 'childrenMdx___frontmatter___title'
+  | 'childrenMdx___frontmatter___role'
   | 'childrenMdx___frontmatter___date'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
@@ -1316,6 +1319,7 @@ export type FileFieldsEnum =
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
+  | 'childMdx___frontmatter___role'
   | 'childMdx___frontmatter___date'
   | 'childMdx___slug'
   | 'childMdx___body'
@@ -3035,6 +3039,7 @@ export type MdxFieldsEnum =
   | 'rawBody'
   | 'fileAbsolutePath'
   | 'frontmatter___title'
+  | 'frontmatter___role'
   | 'frontmatter___date'
   | 'slug'
   | 'body'
@@ -3398,6 +3403,11 @@ export type ImageSharpSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
+export type FooterFragmentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FooterFragmentQuery = { mdx?: { body: string } | null };
+
 export type HeaderDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3415,10 +3425,10 @@ export type PageBySlugQueryVariables = Exact<{
 
 export type PageBySlugQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, mdx?: { body: string, frontmatter?: { title: string } | null } | null };
 
-export type CreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
+export type CreateBlogPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CreatePagesQuery = { allMdx: { edges: Array<{ node: { id: string, fields?: { slug?: string | null, type?: string | null, timeToRead?: { words?: number | null, minutes?: number | null } | null } | null, frontmatter?: { title: string, date?: any | null } | null } }> } };
+export type CreateBlogPagesQuery = { allMdx: { edges: Array<{ node: { id: string, fields?: { slug?: string | null, type?: string | null, timeToRead?: { words?: number | null, minutes?: number | null } | null } | null, frontmatter?: { title: string, date?: any | null } | null } }> } };
 
 export type GatsbyImageSharpFixedFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 
