@@ -4,7 +4,7 @@ import { first, compact, split, each } from 'lodash'
 import { createFilePath } from 'gatsby-source-filesystem'
 import execa from 'execa'
 
-import { Mdx, CreatePagesQuery } from '../generated/graphql-types'
+import { Mdx, CreateBlogPagesQuery } from '../generated/graphql-types'
 
 const SRC = path.resolve(__dirname, '../src')
 
@@ -73,7 +73,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 }) => {
   const { createPage, createRedirect } = actions
 
-  const result = await graphql<CreatePagesQuery>(`
+  const result = await graphql<CreateBlogPagesQuery>(`
     query CreateBlogPages {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }

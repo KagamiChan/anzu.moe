@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Life off royalties',
+    title: 'Inzei Seikatsu',
     siteUrl: 'https://anzu.moe',
   },
   plugins: [

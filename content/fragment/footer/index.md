@@ -2,7 +2,12 @@
 role: footer
 ---
 
-This site is proudly named after Anzu Futaba, [check out how moe she is](https://project-imas.wiki/Anzu_Futaba).
+<ruby>
+印税 <rp>(</rp><rt>Inzei</rt><rp>)</rp>
+生活 <rp>(</rp><rt>Seikatsu</rt><rp>)</rp>
+</ruby> = Life supported by idol royalities, by Anzu Futaba.
+
+[Check out how moe she is](https://project-imas.wiki/Anzu_Futaba).
 
 Presented by Kagami/Anzu Moe Moe Association under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode)
 

@@ -3416,7 +3416,7 @@ export type HeaderDataQuery = { site?: { siteMetadata?: { title?: string | null 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { allMdx: { nodes: Array<{ id: string, fields?: { slug?: string | null, type?: string | null, timeToRead?: { words?: number | null, minutes?: number | null } | null } | null, frontmatter?: { title: string, date?: any | null } | null }> } };
+export type IndexPageQuery = { site?: { siteMetadata?: { title?: string | null } | null } | null, allMdx: { nodes: Array<{ id: string, fields?: { slug?: string | null, type?: string | null, timeToRead?: { words?: number | null, minutes?: number | null } | null } | null, frontmatter?: { title: string, date?: any | null } | null }> } };
 
 export type PageBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;

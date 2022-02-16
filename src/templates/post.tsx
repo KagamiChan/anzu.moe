@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { FC } from 'react'
+import { Helmet } from 'react-helmet'
 
 import { Layout } from '../components/layout'
 
@@ -14,6 +15,11 @@ interface Props {
 
 const PostLayout: FC<Props> = ({ data }) => (
   <Layout>
+    <Helmet>
+      <title>
+        {data?.mdx?.frontmatter?.title} - {data.site?.siteMetadata?.title}
+      </title>
+    </Helmet>
     <Header />
     <main className="flex-grow">
       <article className="prose dark:prose-invert md:prose-lg lg:prose-xl prose-headings:font-heading prose-headings:font-light">

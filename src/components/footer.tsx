@@ -1,10 +1,11 @@
 import { useStaticQuery, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { FooterFragmentQuery } from '../../generated/graphql-types'
 
 import './footer.css'
 
 export const Footer = () => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<FooterFragmentQuery>(graphql`
     query FooterFragment {
       mdx(
         fields: { type: { eq: "fragment" } }
